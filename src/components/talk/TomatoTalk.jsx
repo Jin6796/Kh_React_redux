@@ -47,7 +47,7 @@ const TomatoTalk= (props) => {
     if(event.currentTarget == null) return;
     console.log('폼 내용 변경 발생, name: ' + event.target.name);
     console.log('폼 내용 변경 발생, value: ' + event.target.value); // 입력받은 값
-    setMessage({
+    setMessage({ 
       ...message, 
       userId: "토마토",
       m_no: Date.now(),
