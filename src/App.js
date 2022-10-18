@@ -3,6 +3,7 @@ import { useState } from "react";
 import Bottom from "./components/include/Bottom";
 import Header from "./components/include/Header";
 import KakaoMapTest from "./components/kakao/KakaoMapTest";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [number, setNumber] = useState(1); // 초기값 1
