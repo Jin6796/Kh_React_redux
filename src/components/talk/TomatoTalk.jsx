@@ -44,6 +44,7 @@ const TomatoTalk= (props) => {
     if(parseInt(time) < 10) return "0" + time;
     else return time;
   };
+
   useEffect(() => {
     console.log(database);
     setMessage({ ...message, curtime: setClock() });
@@ -51,9 +52,12 @@ const TomatoTalk= (props) => {
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
       setMessages(data);
-      // console.log(data);
+      console.log(data);
     })
   }, []) // message를 넣으면 매 초마다 새로고침이 되긴 하지만.... 무한반복쓰 ㅠ
+  // setTimeout(
+  // , 1000)
+
   const send = (event) => {
     if(event.key === 'Enter' || event.key === 'Click'){
       // submit 속성 사용 시 반드시 아래 코드 추가가 필요함 - 버블링 방지 주의!!!
@@ -70,8 +74,8 @@ const TomatoTalk= (props) => {
   }
   const handleChangeForm = (event) => {
     if(event.currentTarget == null) return;
-    console.log('폼 내용 변경 발생, name: ' + event.target.name);
-    console.log('폼 내용 변경 발생, value: ' + event.target.value); // 입력받은 값
+    // console.log('폼 내용 변경 발생, name: ' + event.target.name);
+    // console.log('폼 내용 변경 발생, value: ' + event.target.value); // 입력받은 값
     setMessage({ 
       ...message, 
       userId: "토마토",
