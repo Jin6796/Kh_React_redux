@@ -25,10 +25,23 @@ const TomatoTalk= (props) => {
     m_no: 0,
     userId: '',
     msg: '',
-    surtime: ''
+    curtime: ''
   })
+  const setClock = () => {
+    const dataInfo = new Date();
+    const hour = modifyNumber(dataInfo.getHours());
+    const min = modifyNumber(dataInfo.getMinutes());
+    const sec = modifyNumber(dataInfo.getSeconds());
+    const curtime = hour + ":" + min + ":" + sec;
+    return curtime;
+  }
+  const modifyNumber = (time) => {
+    if(parseInt(time) < 10) return "0" + time;
+    else return time;
+  };
   useEffect(() => {
     console.log(database);
+    setMessage({ ...message, curtime: setClock() });
     const starCountRef = ref(database, 'talk');
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
