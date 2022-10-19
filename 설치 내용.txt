@@ -3,3 +3,5 @@ npm install react-router-dom@6
 npm install styled-components
 npm i @fortawesome/fontawesome-free
 npm i react-redux
+
+++ firebase
