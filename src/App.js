@@ -5,7 +5,7 @@ import Header from "./components/include/Header";
 import KakaoMapTest from "./components/kakao/KakaoMapTest";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function App() {
+const App = () => {
   const [number, setNumber] = useState(1); // 초기값 1
   const increase = () => {
     setNumber(number+1);
@@ -17,7 +17,7 @@ function App() {
     <div className="container">
       <h1>React Redux</h1>
       <Header number={number} />
-      <KakaoMapTest />
+      {/* <KakaoMapTest /> */}
       <Bottom increase={increase} decrease={decrease}/>
     </div>
   );
