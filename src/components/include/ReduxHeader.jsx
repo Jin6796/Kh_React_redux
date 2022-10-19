@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { loginGoogle, logout } from '../service/authLogic';
 // spread 연산자, 얕은 복사, 구조분해 할당 
 const ReduxHeader = (props) => {
@@ -24,12 +25,13 @@ const ReduxHeader = (props) => {
   return (
     <div className="sub_container">
       <h3>헤더</h3>
-      {
-        userId ? 
-        <button variant="primary" onClick={()=>{logout(firebaseAuth); window.location.reload();}}>로그아웃</button>
-        :
-        <button onClick={handleGoogle}>구글</button>
-      }
+      <div style={{ display: "flex" }}>
+        <Link to="/" className="nav-link">Home</Link>
+        &nbsp; &nbsp;
+        <Link to="/board" className="nav-link">게시판</Link>
+      </div>
+      { userId ? (<button variant="primary" onClick={()=>{logout(firebaseAuth); window.location.reload();}}>로그아웃</button>)
+        :  <button onClick={handleGoogle}>구글</button> }
       번호 : {number}&nbsp;
       이름 : {mem_name}&nbsp;
       사원 정보 : {empVO && `[사원번호: ${empVO.empno}, 사원명: ${empVO.ename}]`}

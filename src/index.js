@@ -10,6 +10,8 @@ import ReduxApp from "./ReduxApp";
 import "./App.css";
 import firebaseApp from "./components/service/firebase";
 import AuthLogic from "./components/service/authLogic";
+import ReduxRouterApp from "./ReduxRouterApp";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const authLogic = new AuthLogic(firebaseApp);
@@ -19,8 +21,10 @@ store.dispatch(initAuth(authLogic.getUserAuth(), authLogic.getGoogleAuthProvider
 console.log(store.getState());
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <ReduxApp />
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <ReduxRouterApp />
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );
