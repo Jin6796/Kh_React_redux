@@ -28,7 +28,7 @@ const ReduxHeader = (props) => {
       <div style={{ display: "flex" }}>
         <Link to="/" className="nav-link">Home</Link>
         &nbsp; &nbsp;
-        <Link to="/board" className="nav-link">게시판</Link>
+        <Link to="/notice" className="nav-link">게시판</Link>
       </div>
       { userId ? (<button variant="primary" onClick={()=>{logout(firebaseAuth); window.location.reload();}}>로그아웃</button>)
         :  <button onClick={handleGoogle}>구글</button> }
